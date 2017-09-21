@@ -1,0 +1,104 @@
+/*   .fullscreen_bg {
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background-size: cover;
+    background-position: 50% 50%;
+    background-image: url('http://cleancanvas.herokuapp.com/img/backgrounds/baby-blue.jpg');
+       background-repeat:repeat;
+    font-color:blue;
+  } */
+  
+  body {
+   /*  background-color: white; *//* #dce8ee; */
+    background-image: uri(img.jpg);
+     font-color:blue;
+      font-size: 12px;
+      font-family: Tahoma;
+}
+
+img{
+	opacity: 0.2;
+}
+h1 {
+  
+    text-align: center;
+}
+
+
+ form {
+ 	text-align: center;
+vertical-align: middle;
+font-color: black;
+  }
+  .panel-title{
+  text-align: center;
+  }
+ 
+
+ a:link, a:visited {
+    background-color:white; /* #dce8ee; */
+    color: black;/* #201155; */
+    padding: 3px 7px;
+    text-align: center; 
+    text-decoration: none;
+    display: inline-block;
+      font-size: 15px;
+}
+  .linki{
+	  background-color: white;/* #dce8ee; */
+    color:black; /* #201155; */
+    padding: 5px 9px;
+    text-align: center; 
+    text-decoration: none;
+    display: inline-block;
+      font-size: 10px;
+	
+}
+a:hover, a:active {
+    background-color: white;
+}
+div {
+
+    overflow: visible;
+}
+
+input {
+    width: 30%;
+
+    padding: 12px 20px;
+    margin: 8px 0;
+    box-sizing: border-box;
+    border-radius: 4px;
+    border: solid;
+    border-color:#babdb6;
+}
+
+textarea {
+    width: 30%;
+    box-sizing: border-box;
+    border-radius: 4px;
+    border: solid;
+    border-color:#babdb6;
+}
+select {
+    width: 30%;
+    padding: 12px 20px;
+    
+    border-radius: 4px;
+    background-color: white;
+     border: solid;
+    border-color:#babdb6;
+}
+th, td {
+    padding: 15px;
+    text-align: left;
+      border-collapse: collapse;
+}
+tr:hover {background-color: #d3d7cf}
+table {
+    border-collapse: collapse;
+    border: 1px solid black;
+}
