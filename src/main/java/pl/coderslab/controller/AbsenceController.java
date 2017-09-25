@@ -15,12 +15,14 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 import pl.coderslab.entity.Absence;
 import pl.coderslab.entity.Child;
+import pl.coderslab.entity.Invoice;
+import pl.coderslab.entity.Parent;
 import pl.coderslab.repository.AbsenceRepository;
 import pl.coderslab.repository.ChildRepository;
 
 @Controller
 
-public class AbsenceController {
+public class AbsenceController extends SessionedController{
 	
 	@Autowired
 	AbsenceRepository repoAbsence;
@@ -33,6 +35,11 @@ public class AbsenceController {
 	public String register(Model m) {
 		Absence absence=new Absence();
 		m.addAttribute("absence", absence);
+		if (session().getAttribute("parent") != null) {
+			Parent parent = (Parent) session().getAttribute("parent");
+			List<Child> children = repoChild.findByParentId(parent.getId());
+			m.addAttribute("children", children);
+		}
 		return "absence";
 	}
 
@@ -48,14 +55,7 @@ public class AbsenceController {
 		this.repoAbsence.save(absence);
 		return "redirect:/hello";
 	}
-	/*
-	 * list of all children in database
-	 */
-	@ModelAttribute("children")
-	public List<Child> getChildren() {
-		List<Child> children = this.repoChild.findAll();
-		return children;
-	}
+
 	
 
 }

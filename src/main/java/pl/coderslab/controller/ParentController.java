@@ -32,9 +32,9 @@ public class ParentController extends SessionedController {
 	@RequestMapping("/myInvoices")
 	public String register(Model m, HttpServletRequest request) {
 		Parent parent=new Parent();
-		System.out.println("myInvoices");
+	//	System.out.println("myInvoices");
 		HttpSession sess = request.getSession();
-		System.out.println(sess.getAttribute("parent"));
+	//	System.out.println(sess.getAttribute("parent"));
 	
 		if (session().getAttribute("parent") != null) {
 			parent = (Parent) session().getAttribute("parent");

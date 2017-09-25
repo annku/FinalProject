@@ -18,8 +18,8 @@
 	<div id="fullscreen_bg" class="fullscreen_bg" />
 	<div class="container">
 <strong><h1>
-		<a class="linki" href="mainSite">Strona główna</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-		<a class="linki" href="hello">Panel rodzica</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+		<a class="linki" href="mainSite">Strona główna</a>&nbsp;
+		<a class="linki" href="hello">Panel rodzica</a>&nbsp;
 		<a class="linki" href="teacher">Panel nauczyciela</a>
 	</div></h1></strong>
 	<div class="container" id="signupbox" style="margin-top: 50px"
@@ -45,7 +45,7 @@
 			</div>
 			<div class="form-group" class="col-md-3 control-label"
 				class="col-sm-3">
-				<form:label path="message">Dodatkowe informaacje</form:label><br></br>
+				<form:label path="message">Dodatkowe informacje</form:label><br></br>
 				<form:textarea path="message" />
 				<form:errors path="message" />
 			</div>
