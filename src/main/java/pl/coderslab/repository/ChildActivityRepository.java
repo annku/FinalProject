@@ -10,6 +10,6 @@ import pl.coderslab.entity.ChildActivity;
 public interface ChildActivityRepository extends JpaRepository<ChildActivity,Long>{
 
 	List<ChildActivity>findByChildId(Long id);
-	ChildActivity findByActivityId(Long id);
+	List<ChildActivity> findByActivityId(Long id);
 
 }

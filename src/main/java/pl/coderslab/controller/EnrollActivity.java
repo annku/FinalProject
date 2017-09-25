@@ -56,12 +56,7 @@ public class EnrollActivity extends SessionedController{
 		this.repoChildActivity.save(childActivity);
 		return "redirect:/hello";
 	}
-	
-//	@ModelAttribute("children")
-//	public List<Child> getChildren() {
-//		List<Child> children = this.repoChild.findAll();
-//		return children;
-//	}
+
 	@ModelAttribute("activities")
 	public List<Activity> getActivities() {
 		List<Activity> activities = this.repoActivity.findAll();

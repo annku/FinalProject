@@ -111,23 +111,26 @@ public class ActivityController {
 		List<Activity>activities=repoActivity.findAll();
 		return activities;
 	}
-//	@RequestMapping("/enrolledChildren/{id}")
-//	public String showEnrolledChildren(Model m,@PathVariable long id) {
-//		ChildActivity childActivity=repoChildActivity.findByActivityId(id);
-//		List<Child>children=childActivity.getChild();
-//		
-//		m.addAttribute("children", children);
-//		return "activity";
-//	}
+	@RequestMapping("/enrolledChildren/{id}")
+	public String showEnrolledChildren(Model m,@PathVariable long id) {
+		List<ChildActivity> childActivity=repoChildActivity.findByActivityId(id);
+		List<Child>children=new ArrayList<Child>();
+		for(int i=0;i<childActivity.size();i++) {
+		Child child=childActivity.get(i).getChild();
+		children.add(child);
+		}
+		m.addAttribute("children", children);
+		return "enrolledChildren";
+	}
 	/*
 	 * action returning list of children enrolled to activity -needs correcting
 	 */
-	@RequestMapping("/enrolledChildren/{id}")
-		public String showEnrolledChildren(Model m,@PathVariable long id) {
-		List<Child> children = this.repoChild.findAll();
-		m.addAttribute("children", children);
-			return"childList";
-		}
+//	@RequestMapping("/enrolledChildren/{id}")
+//		public String showEnrolledChildren(Model m,@PathVariable long id) {
+//		List<Child> children = this.repoChild.findAll();
+//		m.addAttribute("children", children);
+//			return"childList";
+//		}
 	@ModelAttribute("children")
 	public List<Child> getChildren() {
 		List<Child> children = this.repoChild.findAll();
