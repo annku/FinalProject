@@ -15,12 +15,13 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import pl.coderslab.entity.Activity;
 import pl.coderslab.entity.Child;
 import pl.coderslab.entity.ChildActivity;
+import pl.coderslab.entity.Parent;
 import pl.coderslab.repository.ActivityRepository;
 import pl.coderslab.repository.ChildActivityRepository;
 import pl.coderslab.repository.ChildRepository;
 
 @Controller
-public class EnrollActivity {
+public class EnrollActivity extends SessionedController{
 	
 	@Autowired
 	ChildActivityRepository repoChildActivity;
@@ -35,6 +36,11 @@ public class EnrollActivity {
 	public String enrollToActivity(Model m) {
 		ChildActivity childActivity = new ChildActivity();
 		m.addAttribute("childActivity", childActivity);
+		if (session().getAttribute("parent") != null) {
+			Parent parent = (Parent) session().getAttribute("parent");
+			List<Child> children = repoChild.findByParentId(parent.getId());
+			m.addAttribute("children", children);
+		}
 		return "enroll";
 	}
 
@@ -51,11 +57,11 @@ public class EnrollActivity {
 		return "redirect:/hello";
 	}
 	
-	@ModelAttribute("children")
-	public List<Child> getChildren() {
-		List<Child> children = this.repoChild.findAll();
-		return children;
-	}
+//	@ModelAttribute("children")
+//	public List<Child> getChildren() {
+//		List<Child> children = this.repoChild.findAll();
+//		return children;
+//	}
 	@ModelAttribute("activities")
 	public List<Activity> getActivities() {
 		List<Activity> activities = this.repoActivity.findAll();
