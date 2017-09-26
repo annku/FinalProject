@@ -40,8 +40,11 @@ public class EnrollActivity extends SessionedController{
 			Parent parent = (Parent) session().getAttribute("parent");
 			List<Child> children = repoChild.findByParentId(parent.getId());
 			m.addAttribute("children", children);
+			return "enroll";
+		}else {
+			return "redirect:/login";
 		}
-		return "enroll";
+		
 	}
 
 	/*

@@ -111,6 +111,10 @@ public class ActivityController {
 		List<Activity>activities=repoActivity.findAll();
 		return activities;
 	}
+	
+	/*
+	 * action returns list of children enrolled to activity
+	 */
 	@RequestMapping("/enrolledChildren/{id}")
 	public String showEnrolledChildren(Model m,@PathVariable long id) {
 		List<ChildActivity> childActivity=repoChildActivity.findByActivityId(id);
@@ -122,18 +126,11 @@ public class ActivityController {
 		m.addAttribute("children", children);
 		return "enrolledChildren";
 	}
-	/*
-	 * action returning list of children enrolled to activity -needs correcting
-	 */
-//	@RequestMapping("/enrolledChildren/{id}")
-//		public String showEnrolledChildren(Model m,@PathVariable long id) {
+	
+
+//	@ModelAttribute("children")
+//	public List<Child> getChildren() {
 //		List<Child> children = this.repoChild.findAll();
-//		m.addAttribute("children", children);
-//			return"childList";
-//		}
-	@ModelAttribute("children")
-	public List<Child> getChildren() {
-		List<Child> children = this.repoChild.findAll();
-		return children;
-	}
+//		return children;
+//	}
 }

@@ -31,18 +31,20 @@ public class ParentController extends SessionedController {
 	 */
 	@RequestMapping("/myInvoices")
 	public String register(Model m, HttpServletRequest request) {
-		Parent parent=new Parent();
-	//	System.out.println("myInvoices");
-		HttpSession sess = request.getSession();
-	//	System.out.println(sess.getAttribute("parent"));
-	
+		Parent parent = new Parent();
+		// System.out.println("myInvoices");
+	//	HttpSession sess = request.getSession();
+		// System.out.println(sess.getAttribute("parent"));
+
 		if (session().getAttribute("parent") != null) {
 			parent = (Parent) session().getAttribute("parent");
 			List<Invoice> invoices = repoInvoice.findByParentId(parent.getId());
 			m.addAttribute("invoices", invoices);
+			return "myInvoices";
+		} else {
+			return "redirect:/login";
 		}
 
-	return "myInvoices";
 	}
 
 }
