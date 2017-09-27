@@ -1,5 +1,6 @@
 package pl.coderslab.controller;
 
+import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.HashMap;
@@ -78,7 +79,10 @@ public class InvoiceController {
 			List<Absence>abs=repoAbsence.findByChildId(childId);
 			
 			for(int k=0;k<abs.size();k++) {
-				if(abs.get(k).getDate().after(startDate)&&abs.get(k).getDate().before(endDate)||abs.get(k).getDate().equals(startDate)||abs.get(k).getDate().equals(endDate)) {
+				endDate = new Date(endDate.getTime() + (1000 * 60 * 60 * 24));
+				startDate = new Date(startDate.getTime() - (1000 * 60 * 60 * 24));
+				
+				if(abs.get(k).getDate().after(startDate)&&abs.get(k).getDate().before(endDate)) {
 					absences.add((abs.get(k)));
 					daysChild--;
 				}

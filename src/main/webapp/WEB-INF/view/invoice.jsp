@@ -51,12 +51,12 @@ table {
 
 				<th>od:</th>
 				<td><fmt:formatDate value="${invoice.startDate}"
-						pattern="dd/MM/YYYY" /></td>
+						pattern="dd-MM-YYYY" /></td>
 			</tr>
 			<tr>
 				<th>do:</th>
 				<td><fmt:formatDate value="${invoice.endDate}"
-						pattern="dd/MM/YYYY" /></td>
+						pattern="dd-MM-YYYY" /></td>
 			</tr>
 			<tr>
 				<th>nieobecności:</th>
@@ -65,7 +65,8 @@ table {
 						<c:forEach var="item" items="${invoice.absences}">
 							<tr>
 
-								<td>${item.date}</td>
+								<td><fmt:formatDate value="${item.date}"
+						pattern="dd-MM-YYYY" /></td>
 								<td>${item.child.fullname}</td>
 
 							</tr>
