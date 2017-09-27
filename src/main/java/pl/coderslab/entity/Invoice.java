@@ -2,12 +2,15 @@ package pl.coderslab.entity;
 
 
 import java.util.Date;
+import java.util.List;
+import java.util.Map;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 
 
 @Entity
@@ -22,7 +25,26 @@ public class Invoice {
 	private int sum;
 	private Date startDate;
 	private Date endDate;
+	@OneToMany
+	private List<Absence> absences;
+	@OneToMany
+	private List <Activity> activities;
 	
+	
+
+	
+	public List<Absence> getAbsences() {
+		return absences;
+	}
+	public void setAbsences(List<Absence> absences) {
+		this.absences = absences;
+	}
+	public List<Activity> getActivities() {
+		return activities;
+	}
+	public void setActivities(List<Activity> activities) {
+		this.activities = activities;
+	}
 	public Date getStartDate() {
 		return startDate;
 	}

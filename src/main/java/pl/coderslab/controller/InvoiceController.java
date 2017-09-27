@@ -1,7 +1,10 @@
 package pl.coderslab.controller;
 
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -10,10 +13,6 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.ResponseBody;
-
 import pl.coderslab.entity.Absence;
 import pl.coderslab.entity.Activity;
 import pl.coderslab.entity.Child;
@@ -41,6 +40,8 @@ public class InvoiceController {
 	ParentRepository repoParent;
 	@Autowired
 	InvoiceRepository repoInvoice;
+	@Autowired
+	ChildActivityRepository repoChildActivity;
 
 	/*
 	 * action returns list of parents
@@ -70,22 +71,33 @@ public class InvoiceController {
 	
 		int daysChild = WorkingDays.getWorkingDaysBetweenTwoDates(startDate, endDate) * children.size();
 		int activityCost = 0;
+	
+		List<Absence>absences=new ArrayList<Absence>();
 		for (int i = 0; i < children.size(); i++) {
 			Long childId = children.get(i).getId();
 			List<Absence>abs=repoAbsence.findByChildId(childId);
+			
 			for(int k=0;k<abs.size();k++) {
 				if(abs.get(k).getDate().after(startDate)&&abs.get(k).getDate().before(endDate)||abs.get(k).getDate().equals(startDate)||abs.get(k).getDate().equals(endDate)) {
+					absences.add((abs.get(k)));
 					daysChild--;
 				}
+				
 			}
+			
+			
 			int activityCostChild = 0;
 			List<Activity> list = this.repoActivity.findByChildrenId(childId);
 			for (int j = 0; j < list.size(); j++) {
+				ChildActivity childActivity=(ChildActivity) repoChildActivity.findByActivityId((list.get(j).getId()));
+				if(childActivity.getStartDate().before(startDate)&&childActivity.getEndDate().after(endDate)) {
 				activityCostChild += list.get(j).getPrice();
+				}
 			}
 			activityCost += activityCostChild;
 		}
 		int endSum = daysChild*10 + activityCost;
+		invoice.setAbsences(absences);
 		invoice.setSum(endSum);
 		invoice.setParent(parent);
 		repoInvoice.save(invoice);

@@ -12,28 +12,37 @@
 <title>Welcome page</title>
 <link rel="stylesheet"
 	href="<c:url value="/resources/css/register.css" />" />
-		
+
 <style type="">
-body { text-align: center; }
-table { width: 500px; margin: 0 auto; text-align: left; }</style>
+body {
+	text-align: center;
+}
+
+table {
+	width: 500px;
+	margin: 0 auto;
+	text-align: left;
+}
+</style>
 
 </head>
 <body>
 
 	<div id="fullscreen_bg" class="fullscreen_bg" />
 	<div class="container">
-<strong><h1>
-		<a class="linki" href="${contextPath}/mainSite">Strona główna</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-		<a class="linki" href="${contextPath}/hello">Panel rodzica</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-		<a class="linki" href="${contextPath}/teacher">Panel nauczyciela</a>
-	</h1></strong></div>
+		<strong><h1>
+				<a class="linki" href="${contextPath}/mainSite">Strona główna</a>&nbsp;
+				<a class="linki" href="${contextPath}/hello">Panel rodzica</a>&nbsp;
+				<a class="linki" href="${contextPath}/teacher">Panel nauczyciela</a>
+			</h1></strong>
+	</div>
 
 
-<br></br><br></br>
-	Rachunek:
+	<br></br>
+	<br></br> Rachunek:
 	<br><br></br>
 
-		<table class="table table-condensed"  >
+		<table class="table table-condensed">
 			<tr>
 				<th>imię i nazwisko</th>
 				<td>${invoice.parent.fullname}</td>
@@ -50,11 +59,27 @@ table { width: 500px; margin: 0 auto; text-align: left; }</style>
 						pattern="dd/MM/YYYY" /></td>
 			</tr>
 			<tr>
-				<th>suma</th>
+				<th>nieobecności:</th>
+				<td>
+					<table>
+						<c:forEach var="item" items="${invoice.absences}">
+							<tr>
+
+								<td>${item.date}</td>
+								<td>${item.child.fullname}</td>
+
+							</tr>
+						</c:forEach>
+					</table>
+				</td>
+			</tr>
+			<tr>
+				<th>suma:</th>
 				<td>${invoice.sum}</td>
 			</tr>
 
-		</table> <a href="${contextPath}/parentList">powrót</a>
-			</div>
+		</table>
+	<a href="${contextPath}/parentList">powrót</a>
+	</div>
 </body>
 </html>

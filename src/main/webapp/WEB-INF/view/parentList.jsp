@@ -50,7 +50,7 @@
 	<br> Rodzice:<br>
 
 			<table class="table table-hover">
-				<tdr>
+				<tr>
 				<th>imię</th>
 				<th>nazwisko</th>
 				<th>usuń</th>
@@ -59,7 +59,7 @@
 				<th>faktura</th>
 
 				</tr>
-				</tdr>
+				</tr>
 
 				<c:forEach var="item" items="${parents}">
 

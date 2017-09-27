@@ -75,4 +75,5 @@ public class ChildActivity {
 		this.endDate = endDate;
 	}
 	
+	
 }
