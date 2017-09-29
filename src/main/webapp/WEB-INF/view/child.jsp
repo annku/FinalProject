@@ -15,24 +15,24 @@
 	<div id="fullscreen_bg" class="fullscreen_bg" />
 	<div class="container">
 <strong><h1>
-		<a class="linki" href="mainSite">Strona główna</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-		<a class="linki" href="hello">Panel rodzica</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+		<a class="linki" href="mainSite">Strona główna</a>&nbsp;
+		<a class="linki" href="hello">Panel rodzica</a>&nbsp;
 		<a class="linki" href="teacher">Panel nauczyciela</a>
 </h1></strong>	</div>
 <form:form modelAttribute="child" method="post">
 <h2>Zapisz dziecko</h2>
 		<div>
-			<form:label path="firstname">Imię</form:label><br>
+			<form:label path="firstname">Imię</form:label><br/>
 			<form:input type="firstname" path="firstname" ></form:input>
 			<form:errors path="firstname" />
 		</div>
 		<div>
-			<form:label path="lastname">Nazwisko</form:label><br>
+			<form:label path="lastname">Nazwisko</form:label><br/>
 			<form:input type="lastname" path="lastname" />
 			<form:errors path="lastname" />
 		</div>
 		<div>
-			<form:label path="age">Wiek</form:label><br>
+			<form:label path="age">Wiek</form:label><br/>
 			<form:input type="age" path="age" />
 			<form:errors path="age" />
 		</div>

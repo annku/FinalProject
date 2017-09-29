@@ -28,13 +28,21 @@ public class Parent {
 	private String lastname;
 	private String login;
 	private String password;
-	@OneToMany
+	@OneToMany(mappedBy="parent")
 	private List<Child> child;
 	@Transient
 	private String fullname;
+	@OneToMany(mappedBy="parent")
+	private List<Invoice>invoices;
 	
 	
 	
+	public List<Invoice> getInvoices() {
+		return invoices;
+	}
+	public void setInvoices(List<Invoice> invoices) {
+		this.invoices = invoices;
+	}
 	@Override
 	public String toString() {
 		return "Parent [id=" + id  + ", fullname=" + fullname + "]";

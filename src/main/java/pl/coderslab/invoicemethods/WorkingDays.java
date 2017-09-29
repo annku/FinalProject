@@ -1,4 +1,4 @@
-package pl.coderslab.entity;
+package pl.coderslab.invoicemethods;
 
 import java.util.Calendar;
 import java.util.Date;
