@@ -25,11 +25,12 @@
 
 	<div id="fullscreen_bg" class="fullscreen_bg" />
 	<div class="container">
-<strong><h1>
-		<a class="linki" href="mainSite">Strona główna</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-		<a class="linki" href="hello">Panel rodzica</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-		<a class="linki" href="teacher">Panel nauczyciela</a>
-</h1></strong>	</div>
+		<strong><h1>
+				<a class="linki" href="mainSite">Strona główna</a>&nbsp; <a
+					class="linki" href="hello">Panel rodzica</a>&nbsp; <a class="linki"
+					href="teacher">Panel nauczyciela</a>
+			</h1></strong>
+	</div>
 
 	<div id="signupbox" style="margin-top: 50px"
 		class="mainbox col-md-6 col-md-offset-3 col-sm-8 col-sm-offset-2">
@@ -42,12 +43,12 @@
 				<form:form modelAttribute="parent" method="post" id="signupform"
 					class="form-horizontal" role="form">
 
-
 					<div class="form-group">
 						<form:label path="firstname" class="col-md-3 control-label"></form:label>
 						<div class="col-md-9">
 							<form:input type="text" path="firstname" class="form-control"
 								name="firstname" placeholder="Imię" />
+							<form:errors path="firstname" />
 						</div>
 					</div>
 
@@ -57,6 +58,7 @@
 						<div class="col-md-9">
 							<form:input type="text" path="lastname" class="form-control"
 								name="lastname" placeholder="Nazwisko" />
+							<form:errors path="lastname" />
 						</div>
 					</div>
 
@@ -65,6 +67,12 @@
 						<div class="col-md-9">
 							<form:input type="login" path="login" class="form-control"
 								name="login" placeholder="Login" />
+							<form:errors path="login" />
+							<c:forEach items="${msg}" var="msg">
+								<c:out value="${msg}" />
+
+							</c:forEach>
+
 						</div>
 					</div>
 
@@ -73,6 +81,7 @@
 						<div class="col-md-9">
 							<form:input type="password" path="password" class="form-control"
 								name="password" placeholder="Hasło" />
+							<form:errors path="password" />
 						</div>
 					</div>
 

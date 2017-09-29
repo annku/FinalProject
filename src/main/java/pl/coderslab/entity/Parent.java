@@ -2,21 +2,25 @@ package pl.coderslab.entity;
 
 import java.util.List;
 
-import javax.persistence.CascadeType;
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
 import javax.persistence.OneToMany;
-import javax.persistence.OneToOne;
+import javax.persistence.Table;
 import javax.persistence.Transient;
+import javax.persistence.UniqueConstraint;
 
+
+
+import org.hibernate.validator.constraints.Length;
 import org.hibernate.validator.constraints.NotBlank;
 import org.mindrot.jbcrypt.BCrypt;
 
 
 @Entity
+@Table(uniqueConstraints={@UniqueConstraint(columnNames={"login"})})
 public class Parent {
 	
 	@Id
@@ -26,7 +30,12 @@ public class Parent {
 	private String firstname;
 	@NotBlank
 	private String lastname;
+	@NotBlank
+	@Column(unique = true)
+	@Length(min=3)
 	private String login;
+	@NotBlank(message = "Password may not be empty")
+//	@Length(max=2000, message = "Password may not be longer than 2000 characters")
 	private String password;
 	@OneToMany(mappedBy="parent")
 	private List<Child> child;

@@ -12,6 +12,8 @@ import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.Transient;
+import javax.validation.constraints.Max;
+import javax.validation.constraints.Min;
 import javax.validation.constraints.NotNull;
 
 import org.hibernate.validator.constraints.NotBlank;
@@ -27,7 +29,8 @@ public class Child {
 	private String firstname;
 	@NotBlank
 	private String lastname;
-	
+	@Min(value=2)
+	@Max(value=5)
 	private int age;
 	@ManyToOne
 	private Parent parent;
