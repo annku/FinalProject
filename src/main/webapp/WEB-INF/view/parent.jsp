@@ -68,11 +68,7 @@
 							<form:input type="login" path="login" class="form-control"
 								name="login" placeholder="Login" />
 							<form:errors path="login" />
-							<c:forEach items="${msg}" var="msg">
-								<c:out value="${msg}" />
-
-							</c:forEach>
-
+							<c:out value="${msg}" />
 						</div>
 					</div>
 

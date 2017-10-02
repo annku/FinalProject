@@ -7,7 +7,12 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
-import javax.persistence.OneToOne;
+import javax.validation.constraints.Future;
+import javax.validation.constraints.NotNull;
+import org.hibernate.validator.constraints.Length;
+import org.springframework.format.annotation.DateTimeFormat;
+
+
 
 @Entity
 public class Absence {
@@ -17,8 +22,13 @@ public class Absence {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long Id;
 	@ManyToOne
+	@NotNull
 	private Child child;
+	@Future(message = "Podaj przyszłą datę")
+	@NotNull(message = "Podaj datę")
+	@DateTimeFormat(pattern = "MM/dd/yyyy")
 	private Date date;
+	@Length(max=100)
 	private String message;
 	
 	public Date getDate() {

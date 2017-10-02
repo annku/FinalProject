@@ -12,19 +12,21 @@
 	href="<c:url value="/resources/css/register.css" />" />
 
 <link rel="stylesheet"
-	href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css" /> 
+	href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css" />
 </head>
 <body>
 	<div id="fullscreen_bg" class="fullscreen_bg" />
 	<div class="container">
-<strong><h1>
-		<a class="linki" href="mainSite">Strona główna</a>&nbsp;
-		<a class="linki" href="hello">Panel rodzica</a>&nbsp;
-		<a class="linki" href="teacher">Panel nauczyciela</a>
-	</div></h1></strong>
+		<strong><h1>
+				<a class="linki" href="mainSite">Strona główna</a>&nbsp; <a
+					class="linki" href="hello">Panel rodzica</a>&nbsp; <a class="linki"
+					href="teacher">Panel nauczyciela</a>
+	</div>
+	</h1>
+	</strong>
 	<div class="container" id="signupbox" style="margin-top: 50px"
 		class="mainbox col-md-6 col-md-offset-3 col-sm-8 col-sm-offset-2">
-		
+
 		<form:form modelAttribute="absence" method="post">
 			<div class="panel-heading" class="form-group"
 				class="col-md-3 control-label" class="col-sm-3">
@@ -42,15 +44,21 @@
 				<form:label path="date"></form:label>
 				Data:<br></br>
 				<form:input type="text" id="datepicker" path="date" />
-			</div>
+			</div><form:errors path="date" /> 
+			<p>
+				<strong> <c:out value="${msg}" />
+
+				</strong>
+			</p>
 			<div class="form-group" class="col-md-3 control-label"
 				class="col-sm-3">
-				<form:label path="message">Dodatkowe informacje</form:label><br></br>
+				<form:label path="message">Dodatkowe informacje</form:label>
+				<br></br>
 				<form:textarea path="message" />
 				<form:errors path="message" />
 			</div>
 
-			<input type="submit" ></input>
+			<input type="submit"></input>
 		</form:form>
 	</div>
 	<a class="link" href="hello">powrót</a>
