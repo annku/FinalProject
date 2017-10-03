@@ -3,14 +3,16 @@ package pl.coderslab.entity;
 
 import java.util.Date;
 import java.util.List;
-import java.util.Map;
-
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
+
+import javax.validation.constraints.Past;
+
+
 
 
 @Entity
@@ -23,7 +25,9 @@ public class Invoice {
 	@ManyToOne
 	private Parent parent;
 	private int sum;
+	@Past
 	private Date startDate;
+	@Past
 	private Date endDate;
 	@OneToMany
 	private List<Absence> absences;
