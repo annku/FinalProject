@@ -10,9 +10,11 @@ import javax.persistence.Id;
 import javax.persistence.ManyToMany;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
+import javax.validation.constraints.Future;
 import javax.validation.constraints.NotNull;
 
 import org.hibernate.validator.constraints.NotBlank;
+import org.springframework.format.annotation.DateTimeFormat;
 
 @Entity
 public class ChildActivity {
@@ -27,9 +29,13 @@ public class ChildActivity {
 	@OneToOne
 	private Activity activity;
 	private String note;
-	//@NotBlank
+	@Future(message="podaj datę")
+	@NotNull(message = "Podaj datę")
+	@DateTimeFormat(pattern = "MM/dd/yyyy")
 	private Date startDate;
-	//@NotBlank
+	@Future(message="podaj datę")
+	@NotNull(message = "Podaj datę")
+	@DateTimeFormat(pattern = "MM/dd/yyyy")
 	private Date endDate;
 	
 	

@@ -10,6 +10,7 @@ import javax.persistence.Id;
 import javax.persistence.Lob;
 import javax.persistence.OneToMany;
 import javax.persistence.Transient;
+import javax.validation.constraints.Min;
 
 import org.hibernate.validator.constraints.Length;
 import org.hibernate.validator.constraints.NotBlank;
@@ -24,6 +25,7 @@ public class Activity {
 	private String name;
 	@Lob
 	private String description;
+	@Min(value=10)
 	private int price;
 	@OneToMany
 	private List<Child> children;

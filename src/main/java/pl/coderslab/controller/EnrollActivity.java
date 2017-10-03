@@ -51,9 +51,13 @@ public class EnrollActivity extends SessionedController{
 	 * adding child to activity
 	 */
 	@PostMapping("/enroll")
-	public String enrollToActivity(@Valid ChildActivity childActivity, BindingResult result) {
+	public String enrollToActivity(@Valid ChildActivity childActivity, BindingResult result,Model m) {
 
 		if (result.hasErrors()) {
+			Parent parent = (Parent) session().getAttribute("parent");
+			List<Child> children = repoChild.findByParentId(parent.getId());
+			m.addAttribute("children", children);
+		
 			return "enroll";
 		}
 		this.repoChildActivity.save(childActivity);
