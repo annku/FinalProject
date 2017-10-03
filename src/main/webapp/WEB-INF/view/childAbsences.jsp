@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ page isELIgnored="false"%>
 <%@	taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
@@ -29,37 +28,31 @@
 				</strong></h1>
 		</div>
 
-		<h3>Faktura</h3>
-
-
-
-		<table class="table table-hover">
-			<form:form modelAttribute="invoice" action="${contextPath}/invoice/${id}"
+		<h3>Nieobecności</h3>
+		
+			<form action="${contextPath}/childAbsences/${id}"
 				method="post">
+				<table class="table table-hover">
 				<tr>
 					<th>imię i nazwisko</th>
-					<th>od:</th>
-					<th>do:</th>
+					<th colspan="2">wybierz zakres dat</th>
 					<th></th>
-
-
 				</tr>
 				<tr>
-					<td>${invoice.parent.fullname}</td>
-					<td><form:label type="date" path="startDate"></form:label>
-						<form:input	class="datepicker" id="startDate" path="startDate"/> 
-						<form:errors path="startDate"/></td>
-
-					<td><form:label type="date" path="endDate"></form:label> 
-						<form:input	class="datepicker" id="endDate" path="endDate"/> 
-						<form:errors path="endDate"/></td>
-					<td><input class="col-md-offset-3 col-md-9" class=""
-						type="submit" value="generuj"></input></td>
+					<td>${child.fullname}</td>
+					<td><label for="startDate"></label>
+						<input	class="datepicker" id="startDate"/></td>
+					<td><label for="endDate"></label> 
+						<input	class="datepicker" id="endDate"/></td>
+						
+					<td><input class="col-md-offset-3 col-md-9" 
+						type="submit" value="wyślij"></input></td>
 			</tr>
-			</form:form>
+			</table>
+			</form>
 
 			
-		</table>
+		
 		<a href="${contextPath}/child">Zapisz dziecko</a><br/> 
 		<a href="${contextPath}/activity">Dodaj zajęcia dodatkowe</a> <br/> 
 		<a href="${contextPath}/hello">powrót</a> <br/>
@@ -75,9 +68,7 @@
 			$('.datepicker').datepicker('setDate', 'today');
 			$('.datepicker').datepicker( {maxDate: '0' });
 		}); 
-		
-		
-	
+			
 	</script>
 
 </body>

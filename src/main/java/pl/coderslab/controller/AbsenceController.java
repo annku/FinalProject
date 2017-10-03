@@ -9,8 +9,11 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+
 import pl.coderslab.entity.Absence;
 import pl.coderslab.entity.Child;
 import pl.coderslab.entity.Parent;
@@ -57,6 +60,18 @@ public class AbsenceController extends SessionedController {
 		}
 		this.repoAbsence.save(absence);
 		return "redirect:/hello";
+	}
+	@RequestMapping("/childAbsences/{id}")
+	public String absences(@PathVariable long id, Model model) {
+		Child child=repoChild.getOne(id);
+		model.addAttribute(child);
+		return "childAbsences";
+	}
+	@PostMapping("/childAbsences/{id}")
+	public String getAbsences(@RequestParam Date startDate,@RequestParam Date endDate,@PathVariable long id) {
+		Child child=repoChild.getOne(id);
+		
+		return "absencesList";
 	}
 
 }

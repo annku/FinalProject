@@ -12,17 +12,17 @@
 	href="<c:url value="/resources/css/register.css" />" />
 </head>
 <body>
-<div id="fullscreen_bg" class="fullscreen_bg" />
+<div id="fullscreen_bg" class="fullscreen_bg" >
 	<div class="container">
-<strong><h1>
+<h1><strong>
 		<a class="linki" href="mainSite">Strona główna</a>&nbsp;
 		<a class="linki" href="hello">Panel rodzica</a>&nbsp;
 		<a class="linki" href="teacher">Panel nauczyciela</a>
-</h1></strong>	</div>
+</strong></h1>	</div>
 
 
 
-Zajęcia dodatkowe:<br>
+Zajęcia dodatkowe:<br/>
 
 <table border=1>
 	<tr><th>Zajęcia</th>
@@ -35,7 +35,7 @@ Zajęcia dodatkowe:<br>
 		<c:forEach var="item" items="${activities}">
 
 			<tr>
-				<td><strong>${item.name}</strong><br>
+				<td><strong>${item.name}</strong><br/>
 				${item.description}</td><td>${item.price}</td>
 				<td><a href="${contextPath}/enrolledChildren/${item.id}">pokaż</a></td>
 				<td><a href="${contextPath}/editAct/${item.id}">edytuj</a></td>
@@ -47,8 +47,8 @@ Zajęcia dodatkowe:<br>
 		</c:forEach>
 	</table>
 
-<a href="child">Zapisz dziecko</a><br>
-<a href="activity">Dodaj zajęcia dodatkowe</a><br>
+<a href="child">Zapisz dziecko</a><br/>
+<a href="activity">Dodaj zajęcia dodatkowe</a><br/>
 <a href="teacher">powrót</a>
 	</div>
 

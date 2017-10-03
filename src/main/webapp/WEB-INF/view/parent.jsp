@@ -8,28 +8,21 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 <title>Insert title here</title>
+<link rel="stylesheet" href="<c:url value="/resources/css/register.css" />" />
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"/>
+<script	src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 
-<link rel="stylesheet"
-	href="<c:url value="/resources/css/register.css" />" />
-<link rel="stylesheet"
-	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-	<script
-		src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-	<script
-		src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-
-
-	<%-- <link href="<c:url value="/resources/js/register.js" />" /> --%>
 </head>
 <body>
 
-	<div id="fullscreen_bg" class="fullscreen_bg" />
+	<div id="fullscreen_bg" class="fullscreen_bg" >
 	<div class="container">
-		<strong><h1>
+		<h1><strong>
 				<a class="linki" href="mainSite">Strona główna</a>&nbsp; <a
 					class="linki" href="hello">Panel rodzica</a>&nbsp; <a class="linki"
 					href="teacher">Panel nauczyciela</a>
-			</h1></strong>
+			</strong></h1>
 	</div>
 
 	<div id="signupbox" style="margin-top: 50px"
@@ -98,41 +91,7 @@
 				mam już konto <a href="login">zaloguj</a>
 			</div>
 		</div>
-
-
-
-
 	</div>
-
-
-
-
-	<%-- 	<form:form modelAttribute="parent" method="post">
-		<h2>Zarejestruj się</h2>
-		<div>
-			<form:label path="firstname">First Name</form:label>
-			<form:input path="firstname"></form:input>
-			<form:errors path="firstname" />
-		</div>
-		<div>
-			<form:label path="lastname">Last Name</form:label>
-			<form:input path="lastname" />
-			<form:errors path="lastname" />
-		</div>
-		<div>
-			<form:label path="login">Login</form:label>
-			<form:input path="login" />
-			<form:errors path="login" />
-		</div>
-		<div>
-			<form:label path="password">Hasło</form:label>
-			<form:password path="password" />
-			<form:errors path="password" />
-		</div>
-
-		<input type="submit"></input>
-	</form:form> --%>
-
-
+	</div>
 </body>
 </html>

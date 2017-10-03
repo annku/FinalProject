@@ -28,19 +28,19 @@ table {
 </head>
 <body>
 
-	<div id="fullscreen_bg" class="fullscreen_bg" />
+	<div id="fullscreen_bg" class="fullscreen_bg" >
 	<div class="container">
-		<strong><h1>
+		<h1><strong>
 				<a class="linki" href="${contextPath}/mainSite">Strona główna</a>&nbsp;
 				<a class="linki" href="${contextPath}/hello">Panel rodzica</a>&nbsp;
 				<a class="linki" href="${contextPath}/teacher">Panel nauczyciela</a>
-			</h1></strong>
+			</strong></h1>
 	</div>
 
 
 	<br></br>
 	<br></br> Rachunek:
-	<br><br></br>
+	<br></br>
 
 		<table class="table table-condensed">
 			<tr>

@@ -11,38 +11,32 @@
 <title>Welcome page</title>
 <link rel="stylesheet"
 	href="<c:url value="/resources/css/register.css" />" />
-	
-<!-- 	  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
- <!--  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script> -->
-   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+
+   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"/>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-  
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script> 
+
   
   
 </head>
 <body>
-	<div id="fullscreen_bg" class="fullscreen_bg" />
+	<div id="fullscreen_bg" class="fullscreen_bg" >
 	<div class="container">
-<strong><h1>
+<h1><strong>
 		<a class="linki" href="mainSite">Strona główna</a>&nbsp;
 		<a class="linki" href="hello">Panel rodzica</a>&nbsp;
 		<a class="linki" href="teacher">Panel nauczyciela</a>&nbsp;
-	</h1></strong>
+	</strong></h1>
 
 
 
 
 <table class="table table-hover" class="table table-condensed">
-	<br><br><br>
+	<br/>
 		<c:forEach var="item" items="${activities}">
 
 			<tr>
-				<td><strong>${item.name}</strong><br>
+				<td><strong>${item.name}</strong><br/>
 				${item.description}</td><td>${item.price}</td>
 	
 			
@@ -51,7 +45,7 @@
 		</c:forEach>
 	</table>
 
-<a href="enroll" class="btn btn-default btn-lg">Zapisz dziecko</a><br><br></br>
+<a href="enroll" class="btn btn-default btn-lg">Zapisz dziecko</a><br/><br></br>
 
 <a href="hello" class="btn btn-default btn-lg">powrót</a>
 	</div></div>

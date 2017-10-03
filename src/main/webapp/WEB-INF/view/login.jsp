@@ -11,7 +11,7 @@
 <link rel="stylesheet"
 	href="<c:url value="/resources/css/register.css" />" />
 	<link rel="stylesheet"
-	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"/>
 	<script
 		src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 	<script
@@ -20,13 +20,13 @@
 <body>
 
 	<form:form modelAttribute="user" method="post" class="form-horizontal" >
-<br>Login
+<br/>Login
 		<div>
 			<form:label path="login"></form:label>
 			<form:input type="login" path="login" />
 			<form:errors path="login" />
 		</div>
-		<br>Hasło
+		<br/>Hasło
 		<div>
 			<form:label path="password"></form:label>
 			<form:password path="password" />
