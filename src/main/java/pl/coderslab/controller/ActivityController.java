@@ -126,6 +126,22 @@ public class ActivityController {
 		m.addAttribute("children", children);
 		return "enrolledChildren";
 	}
+	/*
+	 * action returns activities list of specified child 
+	 */
+	@RequestMapping("/childActivities/{id}")
+	public String showChildActivities(Model m,@PathVariable long id) {
+		List<ChildActivity> childActivity=repoChildActivity.findByChildId(id);
+		List<Activity>activities=new ArrayList<Activity>();
+		for(int i=0;i<childActivity.size();i++) {
+		Activity activity=childActivity.get(i).getActivity();
+		activities.add(activity);
+		}
+		m.addAttribute("activities", activities);
+		Child child=repoChild.getOne(id);
+		m.addAttribute(child)
+;		return "childActivities";
+	}
 	
 
 //	@ModelAttribute("children")

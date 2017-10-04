@@ -36,6 +36,7 @@ Lista Dzieci:<br/>
 		<th>edycja</th>
 		<th>usuń</th>
 		<th>nieobecności</th>
+		<th>zajęcia dodatkowe</th>
 		</tr>
 		
 		<c:forEach var="item" items="${children}">
@@ -46,7 +47,8 @@ Lista Dzieci:<br/>
 				<td>${item.age}</td>
 				<td><a href="${contextPath}/edit/${item.id}">edytuj</a></td>
 				<td><a href="${contextPath}/childRemove/${item.id}">usuń</a></td>
-				<td><a href="${contextPath}/childAbsences/${item.id}">wybierz</a></td>
+				<td><a href="${contextPath}/childAbsences/${item.id}">zobacz</a></td>
+				<td><a href="${contextPath}/childActivities/${item.id}">zobacz</a></td>
 			</tr>
 
 		</c:forEach>

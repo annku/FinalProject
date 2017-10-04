@@ -46,7 +46,7 @@
 						<input	name="endDate" class="datepicker" id="endDate"/></td>
 						
 					<td><input class="col-md-offset-3 col-md-9" 
-						type="submit" value="wyślij"></input></td>
+						type="submit" value="zobacz"></input></td>
 			</tr>
 			</table>
 			</form>
