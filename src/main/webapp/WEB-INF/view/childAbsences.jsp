@@ -41,9 +41,9 @@
 				<tr>
 					<td>${child.fullname}</td>
 					<td><label for="startDate"></label>
-						<input	class="datepicker" id="startDate"/></td>
+						<input	name="startDate" class="datepicker" id="startDate"/></td>
 					<td><label for="endDate"></label> 
-						<input	class="datepicker" id="endDate"/></td>
+						<input	name="endDate" class="datepicker" id="endDate"/></td>
 						
 					<td><input class="col-md-offset-3 col-md-9" 
 						type="submit" value="wyślij"></input></td>

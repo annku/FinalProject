@@ -9,10 +9,12 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import pl.coderslab.entity.Absence;
 import pl.coderslab.entity.Child;
@@ -61,16 +63,25 @@ public class AbsenceController extends SessionedController {
 		this.repoAbsence.save(absence);
 		return "redirect:/hello";
 	}
+	
+	/*
+	 * action returns form to determine start and end dates of the range  we want check absences
+	 */
 	@RequestMapping("/childAbsences/{id}")
 	public String absences(@PathVariable long id, Model model) {
 		Child child=repoChild.getOne(id);
 		model.addAttribute(child);
 		return "childAbsences";
 	}
+	/*
+	 * action returns absences of specified child
+	 */
 	@PostMapping("/childAbsences/{id}")
-	public String getAbsences(@RequestParam Date startDate,@RequestParam Date endDate,@PathVariable long id) {
+	public String getAbsences(@RequestParam Date startDate,@RequestParam Date endDate,@PathVariable long id,Model m) {
 		Child child=repoChild.getOne(id);
-		
+		List<Absence> absences=repoAbsence.findByChildIdWhereDateBetweenStartAndEnd(id,startDate,endDate);
+		m.addAttribute(child);
+		m.addAttribute("absences",absences);
 		return "absencesList";
 	}
 

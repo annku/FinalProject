@@ -39,7 +39,7 @@ public class Absence {
 	}
 	@Override
 	public String toString() {
-		return "Absence [Id=" + Id + ", child=" + child + ", message=" + message + "]";
+		return "Absence [Id=" + Id + ", child=" + child + ", date=" + date + "]";
 	}
 	public Long getId() {
 		return Id;
