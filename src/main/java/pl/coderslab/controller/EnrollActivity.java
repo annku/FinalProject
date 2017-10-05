@@ -60,8 +60,18 @@ public class EnrollActivity extends SessionedController{
 		
 			return "enroll";
 		}
+		long id1=childActivity.getChild().getId();
+		long id2=childActivity.getActivity().getId();
+		if(repoChildActivity.findByChildIdWhereActivityId(id1, id2)!=null){
+			Parent parent = (Parent) session().getAttribute("parent");
+			List<Child> children = repoChild.findByParentId(parent.getId());
+			m.addAttribute("children", children);
+			m.addAttribute("msg", "dziecko jest już zapisane na wybrane zajęcia dodatkowe");
+			return"enroll";
+		}else {
 		this.repoChildActivity.save(childActivity);
 		return "redirect:/hello";
+		}
 	}
 
 	@ModelAttribute("activities")

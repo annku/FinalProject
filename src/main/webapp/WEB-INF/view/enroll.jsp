@@ -22,6 +22,7 @@
 
 <form:form modelAttribute="childActivity" method="post">
 <h4>Zajęcia dodatkowe</h4>
+<h2><c:out value="${msg}"></c:out></h2>
 		<div>Dla kogo:<br/>
 			<form:select itemValue="id" itemLabel="fullname" path="child.id" items="${children}" />
 		</div>
