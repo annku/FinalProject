@@ -54,9 +54,11 @@
 	<script>
 		$(function() {
 			$("#datepicker").datepicker( {minDate: '0' });
+			
 		});
 		$(function() {
 			$("#datepicker1").datepicker( {minDate: '0' });
+			
 		});
 	</script>
 

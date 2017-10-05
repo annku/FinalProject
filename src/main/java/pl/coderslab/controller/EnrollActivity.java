@@ -1,5 +1,6 @@
 package pl.coderslab.controller;
 
+import java.util.Date;
 import java.util.List;
 
 import javax.validation.Valid;
@@ -48,29 +49,29 @@ public class EnrollActivity extends SessionedController{
 	}
 
 	/*
-	 * adding child to activity
+	 * enrolling child to activity
 	 */
 	@PostMapping("/enroll")
 	public String enrollToActivity(@Valid ChildActivity childActivity, BindingResult result,Model m) {
 
-		if (result.hasErrors()) {
-			Parent parent = (Parent) session().getAttribute("parent");
-			List<Child> children = repoChild.findByParentId(parent.getId());
-			m.addAttribute("children", children);
+		Parent parent = (Parent) session().getAttribute("parent");
+		List<Child> children = repoChild.findByParentId(parent.getId());
+		m.addAttribute("children", children);
 		
+		if (result.hasErrors()) {
 			return "enroll";
 		}
 		long id1=childActivity.getChild().getId();
 		long id2=childActivity.getActivity().getId();
-		if(repoChildActivity.findByChildIdWhereActivityId(id1, id2)!=null){
-			Parent parent = (Parent) session().getAttribute("parent");
-			List<Child> children = repoChild.findByParentId(parent.getId());
-			m.addAttribute("children", children);
+		Date start=childActivity.getStartDate();
+		Date end=childActivity.getEndDate();
+		if(!repoChildActivity.findByChildIdWhereActivityId(id1, id2,start,end).isEmpty()){
 			m.addAttribute("msg", "dziecko jest już zapisane na wybrane zajęcia dodatkowe");
 			return"enroll";
 		}else {
 		this.repoChildActivity.save(childActivity);
-		return "redirect:/hello";
+		m.addAttribute("msg", "zapisano dziecko na zajęcia dodatkowe");
+		return "enroll";
 		}
 	}
 

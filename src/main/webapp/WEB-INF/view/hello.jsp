@@ -20,6 +20,7 @@
 		<a class="linki" href="${contextPath}/contact">Kontakt</a>&nbsp;
 		<a class="linki" href="${contextPath}/invalidate">Wyloguj</a>
 </strong></h1>	</div>
+<h2><c:out value="${msg}"></c:out></h2>
 	<a href="${contextPath}/parent">Rejestracja</a>
 	<br/>
 	<a href="${contextPath}/showActivity">Zajęcia dodatkowe</a>
