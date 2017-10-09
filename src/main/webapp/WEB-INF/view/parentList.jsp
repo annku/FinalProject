@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ page isELIgnored="false"%>
 <%@	taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
@@ -19,7 +18,7 @@
 </head>
 <body>
 	<div class="container">
-		<div id="fullscreen_bg" class="fullscreen_bg" />
+		<div id="fullscreen_bg" class="fullscreen_bg" >
 		<div class="container">
 			<h1><strong>
 					<a class="linki" href="mainSite">Strona główna</a>&nbsp; <a
@@ -38,6 +37,7 @@
 						<th>nazwisko</th>
 						<th>usuwanie</th>
 						<th>faktura</th>
+						<th>wystawione faktury</th>
 
 					</tr>
 					
@@ -49,6 +49,7 @@
 							<td>${item.lastname}</td>
 							<td><a href="${contextPath}/deleteParent/${item.id}">usuń</a></td>
 							<td><a href="${contextPath}/newInvoice/${item.id}">wystaw fakturę</a></td>
+							<td><a href="${contextPath}/invoices/${item.id}">zobacz</a></td>
 						</tr>
 
 					</c:forEach>
@@ -57,7 +58,7 @@
 				<a href="activity">Dodaj zajęcia dodatkowe</a> <br/> 
 				<a href="hello">powrót</a> <br/>
 	</div>
-
+</div>
 
 </body>
 </html>

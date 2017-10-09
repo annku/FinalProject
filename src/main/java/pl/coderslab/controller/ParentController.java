@@ -7,6 +7,7 @@ import javax.servlet.http.HttpServletRequest;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import pl.coderslab.entity.Invoice;
 import pl.coderslab.entity.Parent;
@@ -26,13 +27,9 @@ public class ParentController extends SessionedController {
 	 * action returns list of invoices of logged in user
 	 */
 	@RequestMapping("/myInvoices")
-	public String register(Model m, HttpServletRequest request) {
+	public String register(Model m) {
 		Parent parent = new Parent();
-		// System.out.println("myInvoices");
-		// HttpSession sess = request.getSession();
-		// System.out.println(sess.getAttribute("parent"));
-
-		if (session().getAttribute("parent") != null) {
+			if (session().getAttribute("parent") != null) {
 			parent = (Parent) session().getAttribute("parent");
 			List<Invoice> invoices = repoInvoice.findByParentId(parent.getId());
 			m.addAttribute("invoices", invoices);
@@ -40,6 +37,16 @@ public class ParentController extends SessionedController {
 		} else {
 			return "redirect:/login";
 		}
+
+	}
+	@RequestMapping("/invoices/{id}")
+	public String invoices(Model m, @PathVariable long id) {
+		Parent parent = repoParent.getOne(id);
+		List<Invoice> invoices = repoInvoice.findByParentId(parent.getId());
+
+			m.addAttribute("invoices", invoices);
+			return "invoices";
+	
 
 	}
 
