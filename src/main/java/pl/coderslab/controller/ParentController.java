@@ -42,10 +42,10 @@ public class ParentController extends SessionedController {
 	@RequestMapping("/invoices/{id}")
 	public String invoices(Model m, @PathVariable long id) {
 		Parent parent = repoParent.getOne(id);
+		m.addAttribute(parent);
 		List<Invoice> invoices = repoInvoice.findByParentId(parent.getId());
-
-			m.addAttribute("invoices", invoices);
-			return "invoices";
+		m.addAttribute("invoices", invoices);
+		return "invoices";
 	
 
 	}

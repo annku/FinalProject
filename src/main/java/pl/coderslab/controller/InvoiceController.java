@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import pl.coderslab.entity.Absence;
 import pl.coderslab.entity.Activity;
@@ -31,7 +32,7 @@ import pl.coderslab.repository.InvoiceRepository;
 import pl.coderslab.repository.ParentRepository;
 
 @Controller
-public class InvoiceController {
+public class InvoiceController extends SessionedController {
 
 	@Autowired
 	AbsenceRepository repoAbsence;
@@ -51,8 +52,8 @@ public class InvoiceController {
 	 */
 	@GetMapping("/parentList")
 	public String allParents(Model model) {
-		Invoice invoice = new Invoice();
-		model.addAttribute(invoice);
+//		Invoice invoice = new Invoice();
+//		model.addAttribute(invoice);
 		
 		return "parentList";
 	}
@@ -128,5 +129,16 @@ public class InvoiceController {
 		invoice.setParent(parent);
 		repoInvoice.save(invoice);
 		return "invoice";
+	}
+	@RequestMapping("deleteInvoice/{id}")
+	public String deleteInvice(@PathVariable long id, Model m) {
+		Invoice invoice=repoInvoice.getOne(id);
+		Parent parent=invoice.getParent();
+		m.addAttribute(parent);
+		repoInvoice.deleteById(id);
+		List<Invoice> invoices = repoInvoice.findByParentId(parent.getId());
+		m.addAttribute("invoices", invoices);
+		
+		return "invoices";
 	}
 }

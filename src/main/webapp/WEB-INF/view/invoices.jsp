@@ -17,14 +17,15 @@
 <div id="fullscreen_bg" class="fullscreen_bg" >
 	<div class="container">
 <strong><h1>
-		<a class="linki" href="mainSite">Strona główna</a>&nbsp;
-		<a class="linki" href="hello">Panel rodzica</a>&nbsp;
-		<a class="linki" href="teacher">Panel nauczyciela</a>
+		<a class="linki" href="${contextPath}/mainSite">Strona główna</a>&nbsp;
+		<a class="linki" href="${contextPath}/hello">Panel rodzica</a>&nbsp;
+		<a class="linki" href="${contextPath}/teacher">Panel nauczyciela</a>
 	</h1></strong></div>
 
 
 <div class="container">
-<h3>Lista faktur:</h3><br/>
+<h3>Lista faktur: ${parent.fullname}</h3>
+<br/>
 
 <table class="table table-hover" class="table table-bordered" >
 		<tr>
